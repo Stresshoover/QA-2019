@@ -57,4 +57,16 @@ public class HomePage extends Page {
         actions.moveToElement(findElement(loginBtn)).build().perform();
         click(By.cssSelector("li.header2-user-menu__item.header2-user-menu__item_type_settings"));
     }
+
+    @Step("Click catalog button")
+    public void clickCatalogBtn() {
+        click(By.cssSelector("div.n-topmenu-new-vertical__left > div > button"));
+    }
+
+    @Step("Choose toothbrushes in catalog")
+    public void chooseToothbrushes() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(findElement(By.linkText("Бытовая техника"))).build().perform();
+        click(By.linkText("Зубные щетки и ирригаторы"));
+    }
 }

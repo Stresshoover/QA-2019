@@ -20,6 +20,10 @@ public class Page {
         return driver.findElement(element);
     }
 
+    public void waitForVisibility(By element) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
+
     public void click(By elementBy) {
         findElement(elementBy).click();
     }

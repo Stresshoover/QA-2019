@@ -46,4 +46,27 @@ public class BeruTests extends DriverSetup {
         SettingsPage settingsPage = new SettingsPage(getDriver(), getWait());
         settingsPage.assertRegionEqualsDeliveryRegion();
     }
+
+    @Test
+    public void thirdTest() {
+        HomePage homePage = new HomePage(getDriver(), getWait());
+        homePage.clickCatalogBtn();
+        homePage.chooseToothbrushes();
+
+        (new IntermediateProductPage(getDriver(), getWait())).chooseElectricToothbrushes();
+
+        ProductPage productPage = new ProductPage(getDriver(), getWait());
+        productPage.enterPriceRange();
+        productPage.clickShowMoreBtn();
+        productPage.assertProductsPrices();
+        productPage.addProductToCart();
+        productPage.goToCart();
+
+        CartPage cartPage = new CartPage(getDriver(), getWait());
+        cartPage.assertDelivery();
+        cartPage.assertTotalPrice();
+        cartPage.addProduct();
+        cartPage.assertFreeDelivery();
+        cartPage.assertTotalPriceAfter();
+    }
 }

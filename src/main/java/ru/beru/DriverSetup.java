@@ -28,8 +28,9 @@ public class DriverSetup {
         driver = new EventFiringWebDriver(new OperaDriver());
         driver.register(new WebDriverEventListener());
         driver.get("https://beru.ru/");
+        driver.manage().window().maximize();
 
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, 30);
     }
 
     @AfterMethod
