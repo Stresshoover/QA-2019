@@ -38,7 +38,7 @@ public class DriverSetup {
 
         if (driver.findElement(By.cssSelector("div.header2-nav__user")).getText().equals("Мой профиль")) {
             driver.findElement(By.className("header2-nav__user")).click();
-            driver.findElement(By.xpath("/html/body/div[8]/div[2]/div/ul[4]/li[2]/a")).click();
+            driver.findElement(By.xpath("//a[text()='Выход']")).click();
         }
 
         driver.quit();
