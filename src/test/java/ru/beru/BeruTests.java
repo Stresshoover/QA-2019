@@ -7,6 +7,11 @@ import org.testng.annotations.Test;
 @Listeners({TestListener.class})
 public class BeruTests extends DriverSetup {
 
+    @DataProvider(name = "regions")
+    public Object[][] createData(){
+        return new Object[][] { { "Хвалынск" }, { "Саратов" } };
+    }
+
     @Test
     public void firstTest() {
         HomePage homePage = new HomePage(getDriver(), getWait());
@@ -20,12 +25,6 @@ public class BeruTests extends DriverSetup {
 
         homePage.assertLoginBtnChange();
     }
-
-    @DataProvider(name = "regions")
-    public Object[][] createData(){
-        return new Object[][] { { "Хвалынск" }, { "Саратов" } };
-    }
-
 
     @Test(dataProvider = "regions")
     public void secondTest(String region) {
